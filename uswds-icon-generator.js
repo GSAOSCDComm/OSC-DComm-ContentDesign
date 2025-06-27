@@ -1,8 +1,10 @@
-(function() {
+(function () {
   if (document.querySelector('#uswds-icon-overlay')) return;
 
   const SPRITE = '/sites/gsa.gov/templates/styles/dist/img/sprite.svg';
-  const icons = [/* your icon list here (same as original) */];
+  const icons = [
+    'accessibility_new','accessible_forward','account_balance','account_box','account_circle','add','add_circle','add_circle_outline','alarm','alternate_email','announcement','arrow_back','arrow_downward','arrow_drop_down','arrow_drop_up','arrow_forward','arrow_upward','api','assessment','attach_file','attach_money','autorenew','backpack','bathtub','bedding','bookmark','bug_report','build','calendar_today','campaign','camping','cancel','chat','check','check_box_outline_blank','check_circle','check_circle_outline','checkroom','clean_hands','clothes','close','closed_caption','cloud','code','comment','connect_without_contact','construction','construction_worker','contact_page','content_copy','coronavirus','credit_card','deck','delete','device_thermostat','directions','directions_bike','directions_bus','directions_car','directions_walk','do_not_disturb','do_not_touch','drag_handle','eco','edit','electrical_services','emoji_events','error','error_outline','event','expand_less','expand_more','facebook','fingerprint','fitness_center','flag','folder','folder_open','forum','front_hand','gavel','get_app','gif','grade','group','help','help_outline','highlight','history','home','hourglass_empty','https','image','info','info_outline','keyboard','label','language','launch','link','list','lock','location_on','mail','menu','mic','military_tech','money','more_horiz','more_vert','notification_important','notifications','open_in_new','outdoor_grill','palette','people','person','phone','photo','pie_chart','play_arrow','print','public','query_builder','save','school','search','security','send','settings','share','shopping_cart','smartphone','spa','star','star_border','store','support','thumb_up','thumb_down','timer','today','train','trending_down','trending_up','verified','warning','watch','wifi','work','youtube','instagram','linkedin','twitter'
+  ];
   const colors = ['default','primary','white','green','red'];
   const sizes = ['default',3,4,5,6,7,8,9];
 
@@ -67,6 +69,7 @@
     if (mode.value === 'single') {
       cfg.append(iconGrid('icon-sel'), colorSizeText(), hiddenInput('ico'));
     }
+    // 'list' mode is not implemented for brevity
   }
 
   function iconGrid(id) {
