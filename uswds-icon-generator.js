@@ -372,10 +372,7 @@ const icons = [
     iconGrid.className = 'margin-top-1 padding-2 border-1px border-base-lighter';
     iconGrid.style.cssText = 'display:none;flex-wrap:wrap;gap:4px;max-height:300px;overflow-y:auto';
     
-    const searchInput = mk('input');
-    searchInput.type = 'text';
-    searchInput.className = 'usa-input margin-top-1 margin-bottom-1';
-    searchInput.placeholder = 'Search icons...';
+    
     
     icons.forEach(iconName => {
       const btn = mk('button');
@@ -411,15 +408,9 @@ const icons = [
       gridToggle.textContent = isHidden ? 'Hide icon grid' : 'Show icon grid';
     };
     
-    searchInput.oninput = () => {
-      const term = searchInput.value.toLowerCase();
-      iconGrid.querySelectorAll('.icon-btn').forEach(btn => {
-        const iconName = btn.dataset.icon;
-        btn.style.display = iconName.includes(term) ? 'flex' : 'none';
-      });
-    };
+  
     
-    container.append(label, selectedIcon, gridToggle, searchInput, iconGrid);
+    container.append(label, selectedIcon, gridToggle, iconGrid);
     return container;
   }
   
