@@ -41,7 +41,7 @@ javascript:(function () {
       }
     </style>
 
-    <h3 style="margin-top:0; color:#1a4480;">USWDS Alert Generator</h3>
+    <h3 style="margin-top:0; color:#1a4480;">USWDS Alert Generator 1.1</h3>
 
     <div style="margin:10px 0">
       <label>Alert Type:</label>
