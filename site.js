@@ -1,4 +1,7 @@
 (function () {
+  // Enable reveal CSS that is gated behind ".js-on"
+  document.documentElement.classList.add("js-on");
+
   // Footer year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
@@ -13,16 +16,25 @@
     return;
   }
 
+  // Fallback if IntersectionObserver isn't supported
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
   const io = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       for (const e of entries) {
         if (e.isIntersecting) {
           e.target.classList.add("is-visible");
-          io.unobserve(e.target);
+          observer.unobserve(e.target);
         }
       }
     },
-    { threshold: 0.15 }
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px"
+    }
   );
 
   els.forEach((el) => io.observe(el));
