@@ -157,6 +157,12 @@ min-height: 100vh!important; /* or use your existing nd-panel sizing */
   color: var(--nd-text-on-light);
 }
 
+/* Dark (g7: very dark gray, not black) */
+.nd-theme--g7 {
+  background: #2b2b2b;
+  color: var(--nd-text-on-dark);
+}
+
 /* Dark (near-black) */
 .nd-theme--g9 {
   background: #0b0f1a;
