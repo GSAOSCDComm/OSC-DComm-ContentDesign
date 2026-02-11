@@ -43,23 +43,33 @@
   <main id="top">
     <!-- HERO (full viewport, centered, dark) -->
     <section class="nd-panel nd-panel--center nd-hero-image nd-theme--g9">
-      <div class="grid-container">
-        <p class="text-uppercase font-sans-sm letter-spacing-2 reveal">Service and innovation</p>
+  <div class="grid-container">
+    <div class="grid-row flex-align-center">
+      <!-- Left side spacer (takes 50% on desktop, disappears on mobile) -->
+      <div class="display-none tablet:display-block tablet:grid-col-6"></div>
 
-        <h1 class="font-sans-2xl tablet:font-sans-3xl margin-y-2 reveal">
-          GSA.gov/Ai
-        </h1>
+      <!-- Right side content (50% on desktop, 100% on mobile) -->
+      <div class="grid-col-12 tablet:grid-col-6">
+        <div class="nd-hero-content reveal">
+          <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0">Service and innovation</p>
 
-        <p class="usa-intro measure-5 reveal">
-          We facilitate best practices and ethical use of AI to support efficiency and value, for GSA and the entire federal government.
-        </p>
+          <h1 class="font-sans-2xl tablet:font-sans-3xl margin-y-2">
+            GSA.gov/AI
+          </h1>
 
-        <div class="margin-top-3 display-flex flex-wrap gap-2 reveal">
-          <a class="usa-button" href="#work">See our work</a>
-          <a class="usa-button usa-button--outline" href="#contact">Contact us</a>
+          <p class="usa-intro measure-5">
+            We facilitate best practices and ethical use of AI to support efficiency and value, for GSA and the entire federal government.
+          </p>
+
+          <div class="margin-top-3 display-flex flex-wrap gap-2">
+            <a class="usa-button" href="#work">See our work</a>
+            <a class="usa-button usa-button--outline" href="#contact">Contact us</a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 <section class="nd-panel nd-panel--center  nd-theme--g0" aria-labelledby="ai-quote-title">
   <div class="grid-container">
