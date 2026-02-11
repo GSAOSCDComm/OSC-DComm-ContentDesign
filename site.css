@@ -1,0 +1,102 @@
+.nd-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.nd-hero {
+  padding: 5rem 0 4rem;
+}
+
+.nd-section {
+  padding: 4rem 0;
+}
+
+.nd-section--dark {
+  background: #0b0f1a;
+  color: #fff;
+}
+
+.nd-footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.nd-eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.nd-hero-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  line-height: 1.05;
+  margin: 0.75rem 0 1rem;
+}
+
+.nd-hero-subtitle {
+  font-size: 1.15rem;
+  max-width: 52ch;
+  opacity: 0.9;
+}
+
+.nd-cta-row {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nd-h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem;
+}
+
+.nd-h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.nd-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .nd-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.nd-card {
+  padding: 1.25rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.nd-section--dark .nd-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms ease, transform 650ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
