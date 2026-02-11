@@ -1,49 +1,30 @@
 /* ==========================================================================
-   NDSTUDIO SITE CSS
-   Purpose: clean structure + obvious edit points as the project grows.
-   Replace values in the TOKENS section first before touching individual rules.
+   NDSTUDIO LAYER ON TOP OF USWDS
+   Goal: Use USWDS for layout/typography/components.
+   This file ONLY contains NDStudio-specific behavior:
+   - sticky header wrapper
+   - full viewport panels
+   - section theme backgrounds
+   - reveal motion
+   - small readability overrides for dark sections
    ========================================================================== */
 
 
 /* ==========================================================================
-   01) TOKENS / SITE SETTINGS
-   Replace these first when you want to change the “look”
+   01) TOKENS (EDIT HERE FIRST)
    ========================================================================== */
 
 :root {
-  /* Layout */
-  --nd-container-max: 1100px;
-  --nd-container-pad: 1.25rem;
+  /* Header */
+  --nd-header-bg: #ffffff;
+  --nd-header-border: rgba(0, 0, 0, 0.08);
+  --nd-header-offset: 88px; /* anchor offset for sticky header */
 
-  /* Section sizing */
-  --nd-section-min-height: 100vh;                 /* full viewport sections */
-  --nd-section-pad-y: clamp(3rem, 8vh, 6rem);     /* responsive vertical padding */
+  /* Fullscreen sections */
+  --nd-panel-min-height: 100vh;
+  --nd-panel-pad-y: clamp(3rem, 8vh, 6rem);
 
-  /* Type */
-  --nd-eyebrow-size: 0.95rem;
-  --nd-eyebrow-tracking: 0.06em;
-
-  --nd-hero-size: clamp(2.2rem, 4.2vw, 3.6rem);
-  --nd-hero-line: 1.05;
-
-  --nd-h2-size: 1.75rem;
-  --nd-h3-size: 1.1rem;
-
-  --nd-body-max: 70ch;
-  --nd-hero-body-max: 52ch;
-
-  /* Card */
-  --nd-card-pad: 1.25rem;
-  --nd-card-radius: 16px;
-  --nd-card-border: rgba(0, 0, 0, 0.12);
-
-  /* Dark section */
-  --nd-dark-bg: #0b0f1a;
-  --nd-dark-fg: #ffffff;
-  --nd-dark-card-bg: rgba(255, 255, 255, 0.06);
-  --nd-dark-card-border: rgba(255, 255, 255, 0.14);
-
-  /* Motion (reveal) */
+  /* Reveal motion */
   --nd-reveal-y: 22px;
   --nd-reveal-opacity-duration: 650ms;
   --nd-reveal-transform-duration: 800ms;
@@ -51,241 +32,117 @@
 
 
 /* ==========================================================================
-   02) BASE / UTILITIES
-   Add global helpers here (keep minimal)
-   ========================================================================== */
-
-.nd-container {
-  max-width: var(--nd-container-max);
-  margin: 0 auto;
-  padding: 0 var(--nd-container-pad);
-}
-
-.nd-max-body {
-  max-width: var(--nd-body-max);
-}
-
-/* ==========================================================================
-   NAV: STICKY HEADER
+   02) STICKY HEADER (WRAPPER)
+   Add class "nd-header" to your <header>
    ========================================================================== */
 
 .nd-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #ffffff;               /* keeps content from showing through */
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: var(--nd-header-bg);
+  border-bottom: 1px solid var(--nd-header-border);
 }
 
 /* Prevent anchor links from hiding under the sticky header */
 :target {
-  scroll-margin-top: 88px;           /* adjust if your header is taller */
+  scroll-margin-top: var(--nd-header-offset);
 }
 
 
 /* ==========================================================================
-   03) SECTION LAYOUT (FULL VIEWPORT SECTIONS)
-   Replace behavior here if you change the “one section = one screen” approach
+   03) FULL-VIEWPORT PANELS
+   Add class "nd-panel" to each <section> you want to fill the viewport.
+   Use "nd-panel--center" to vertically center content.
+   Use "nd-panel--tight" for normal sections (not full-height).
    ========================================================================== */
 
-/* Default: full-viewport sections */
-.nd-hero,
-.nd-section {
-  min-height: var(--nd-section-min-height);
-  padding: var(--nd-section-pad-y) 0;
+.nd-panel {
+  min-height: var(--nd-panel-min-height);
+  padding: var(--nd-panel-pad-y) 0;
+  display: flex;
+  align-items: flex-start; /* better when content grows */
 }
 
-/* Hero: center vertically */
-.nd-hero {
-  display: flex;
+.nd-panel--center {
   align-items: center;
 }
 
-/* Sections: top-align content (better for longer content blocks) */
-.nd-section {
-  display: flex;
-  align-items: flex-start;
-}
-
-/* Optional variants you can apply per section in HTML:
-   - add class "nd-section--center" to center vertically
-   - add class "nd-section--tight" for shorter sections
-*/
-.nd-section--center {
-  align-items: center;
-}
-
-.nd-section--tight {
+.nd-panel--tight {
   min-height: auto;
   padding: 4rem 0;
 }
 
 
 /* ==========================================================================
-   04) THEME VARIANTS
-   Add more variants here (e.g., light, muted, gradient)
+   04) SECTION THEMES (BACKGROUND + TEXT)
+   Apply ONE theme class per <section>.
    ========================================================================== */
 
-.nd-section--dark {
-  background: var(--nd-dark-bg);
-  color: var(--nd-dark-fg);
-}
-
-/* ==========================================================================
-   04) THEME VARIANTS (SECTION THEMES)
-   Apply these classes on <section> elements in index.html
-   ========================================================================== */
-
-/* Default (light) */
-.nd-section--light {
+.nd-theme--light {
   background: #ffffff;
   color: #111111;
 }
 
-/* Hero / first section (black) */
-.nd-section--black {
+.nd-theme--black {
   background: #0b0f1a;
   color: #ffffff;
 }
 
-/* Additional background options */
-.nd-section--slate {
+.nd-theme--slate {
   background: #111827;
   color: #ffffff;
 }
 
-.nd-section--sand {
+.nd-theme--sand {
   background: #f5f2ea;
   color: #111111;
 }
 
-.nd-section--mint {
+.nd-theme--mint {
   background: #e6f7f1;
   color: #0b1f16;
 }
 
-.nd-section--sky {
+.nd-theme--sky {
   background: #e9f2ff;
   color: #0b1526;
 }
 
-.nd-section--lavender {
+.nd-theme--lavender {
   background: #f1efff;
   color: #140b2e;
 }
 
-/* Make cards work on dark sections automatically */
-.nd-section--black .nd-card,
-.nd-section--slate .nd-card {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.14);
-}
 
-/* Optional: make outlines/buttons readable on dark sections */
-.nd-section--black .usa-button--outline,
-.nd-section--slate .usa-button--outline {
+/* ==========================================================================
+   05) DARK SECTION READABILITY HELPERS
+   USWDS buttons/cards can need a tiny nudge on dark backgrounds.
+   Keep this minimal.
+   ========================================================================== */
+
+/* Outline buttons readable on dark themes */
+.nd-theme--black .usa-button--outline,
+.nd-theme--slate .usa-button--outline {
   box-shadow: inset 0 0 0 2px #ffffff;
   color: #ffffff;
 }
 
-
-
-
-/* ==========================================================================
-   05) TYPOGRAPHY
-   Replace type scale + spacing here
-   ========================================================================== */
-
-.nd-eyebrow {
-  font-size: var(--nd-eyebrow-size);
-  letter-spacing: var(--nd-eyebrow-tracking);
-  text-transform: uppercase;
-  opacity: 0.8;
-  margin: 0 0 0.75rem;
-}
-
-.nd-hero-title {
-  font-size: var(--nd-hero-size);
-  line-height: var(--nd-hero-line);
-  margin: 0.75rem 0 1rem;
-}
-
-.nd-hero-subtitle {
-  font-size: 1.15rem;
-  max-width: var(--nd-hero-body-max);
-  opacity: 0.9;
-  margin: 0;
-}
-
-.nd-h2 {
-  font-size: var(--nd-h2-size);
-  margin: 0 0 1.25rem;
-}
-
-.nd-h3 {
-  font-size: var(--nd-h3-size);
-  margin: 0 0 0.5rem;
+/* If you use custom “cards” inside dark themes, give them subtle contrast.
+   Prefer USWDS components where possible. */
+.nd-theme--black .nd-surface,
+.nd-theme--slate .nd-surface {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
 }
 
 
 /* ==========================================================================
-   06) HERO CTA ROW
-   ========================================================================== */
-
-.nd-cta-row {
-  margin-top: 1.25rem;
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-
-/* ==========================================================================
-   07) GRID / CARDS
-   Replace layout rules here for different content patterns
-   ========================================================================== */
-
-.nd-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .nd-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.nd-card {
-  padding: var(--nd-card-pad);
-  border: 1px solid var(--nd-card-border);
-  border-radius: var(--nd-card-radius);
-  background: #fff;
-}
-
-.nd-section--dark .nd-card {
-  background: var(--nd-dark-card-bg);
-  border-color: var(--nd-dark-card-border);
-}
-
-
-/* ==========================================================================
-   08) FOOTER
-   ========================================================================== */
-
-.nd-footer {
-  padding: 2rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-
-/* ==========================================================================
-   09) MOTION: REVEAL ON SCROLL
+   06) REVEAL ON SCROLL
    Expected JS behavior:
    - JS adds "js-on" to <html>
    - JS adds "is-visible" to each ".reveal" when it enters viewport
-   Replace values in TOKENS section first.
    ========================================================================== */
 
 /* Default: visible (so content is not hidden if JS fails) */
@@ -317,22 +174,3 @@
     transition: none;
   }
 }
-
-
-/* ==========================================================================
-   10) OPTIONAL: SCROLL SNAP (OFF BY DEFAULT)
-   If you want “one section per scroll,” uncomment this block.
-   ========================================================================== */
-
-/*
-html {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-.nd-hero,
-.nd-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-*/
