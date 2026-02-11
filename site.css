@@ -91,6 +91,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+min-height: 100vh; /* or use your existing nd-panel sizing */
+ 
 }
 
 /* Dark overlay for 508 contrast */
