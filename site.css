@@ -75,68 +75,74 @@
 
 
 /* ==========================================================================
-   04) SECTION THEMES (BACKGROUND + TEXT)
+   04) SECTION THEMES (USWDS-STYLE GRAYS + 508 CONTRAST)
    Apply ONE theme class per <section>.
+   Use nd-theme--g9 for dark sections, nd-theme--g0..g3 for light sections.
    ========================================================================== */
 
-.nd-theme--light {
+/* Text colors chosen for strong contrast on the backgrounds below */
+:root {
+  --nd-text-on-light: #1b1b1b;  /* very dark gray (excellent contrast) */
+  --nd-text-on-dark:  #ffffff; /* white */
+}
+
+/* Lightest surface (white) */
+.nd-theme--g0 {
   background: #ffffff;
-  color: #111111;
+  color: var(--nd-text-on-light);
 }
 
-.nd-theme--black {
+/* Very light gray */
+.nd-theme--g1 {
+  background: #f0f0f0;
+  color: var(--nd-text-on-light);
+}
+
+/* Light gray */
+.nd-theme--g2 {
+  background: #e6e6e6;
+  color: var(--nd-text-on-light);
+}
+
+/* Medium light gray */
+.nd-theme--g3 {
+  background: #d9d9d9;
+  color: var(--nd-text-on-light);
+}
+
+/* Dark (near-black) */
+.nd-theme--g9 {
   background: #0b0f1a;
-  color: #ffffff;
+  color: var(--nd-text-on-dark);
 }
 
-.nd-theme--slate {
-  background: #111827;
-  color: #ffffff;
-}
-
-.nd-theme--sand {
-  background: #f5f2ea;
-  color: #111111;
-}
-
-.nd-theme--mint {
-  background: #e6f7f1;
-  color: #0b1f16;
-}
-
-.nd-theme--sky {
-  background: #e9f2ff;
-  color: #0b1526;
-}
-
-.nd-theme--lavender {
-  background: #f1efff;
-  color: #140b2e;
-}
+/* Optional aliases (only keep if you still have these classes in HTML somewhere) */
+/* .nd-theme--light { background: #ffffff; color: var(--nd-text-on-light); } */
+/* .nd-theme--black { background: #0b0f1a; color: var(--nd-text-on-dark); } */
 
 
 /* ==========================================================================
-   05) DARK SECTION READABILITY HELPERS
-   USWDS buttons/cards can need a tiny nudge on dark backgrounds.
-   Keep this minimal.
+   05) SURFACES + DARK READABILITY HELPERS
+   Keep this minimal and predictable.
    ========================================================================== */
 
-/* Outline buttons readable on dark themes */
-.nd-theme--black .usa-button--outline,
-.nd-theme--slate .usa-button--outline {
-  box-shadow: inset 0 0 0 2px #ffffff;
-  color: #ffffff;
-}
-
-/* If you use custom “cards” inside dark themes, give them subtle contrast.
-   Prefer USWDS components where possible. */
-.nd-theme--black .nd-surface,
-.nd-theme--slate .nd-surface {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+/* Default “card-like” surface (works on light backgrounds) */
+.nd-surface {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.10);
   border-radius: 16px;
 }
 
+/* Dark sections: give surfaces subtle contrast and keep outlines readable */
+.nd-theme--g9 .nd-surface {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.nd-theme--g9 .usa-button--outline {
+  box-shadow: inset 0 0 0 2px #ffffff;
+  color: #ffffff;
+}
 
 /* ==========================================================================
    06) REVEAL ON SCROLL
