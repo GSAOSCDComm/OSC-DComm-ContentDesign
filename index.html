@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Landing Page</title>
 
-  <!-- USWDS CSS from a CDN (simple to start) -->
+  <!-- USWDS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.10.0/dist/css/uswds.min.css">
+  <!-- NDStudio layer (only custom behaviors) -->
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<header class="usa-header usa-header--basic nd-header">    
-  <div class="usa-nav-container">
+  <header class="usa-header usa-header--basic nd-header">
+    <div class="usa-nav-container">
       <div class="usa-navbar">
         <div class="usa-logo">
           <em class="usa-logo__text">
-            <a href="#" title="Home">NDStudio</a>
+            <a href="#top" title="Home">NDStudio</a>
           </em>
         </div>
       </div>
@@ -34,17 +35,21 @@
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="nd-hero nd-section--dark">
-      <div class="nd-container">
-        <p class="nd-eyebrow reveal">Design and delivery</p>
-        <h1 class="nd-hero-title reveal">A modern USWDS site with motion.</h1>
-        <p class="nd-hero-subtitle reveal">
+  <main id="top">
+    <!-- HERO (full viewport, centered, dark) -->
+    <section class="nd-panel nd-panel--center nd-theme--black">
+      <div class="grid-container">
+        <p class="text-uppercase font-sans-sm letter-spacing-2 reveal">Design and delivery</p>
+
+        <h1 class="font-sans-2xl tablet:font-sans-3xl margin-y-2 reveal">
+          A modern USWDS site with motion.
+        </h1>
+
+        <p class="usa-intro measure-5 reveal">
           Scroll to see elements fade and rise in. This is a static GitHub Pages build.
         </p>
 
-        <div class="nd-cta-row reveal">
+        <div class="margin-top-3 display-flex flex-wrap gap-2 reveal">
           <a class="usa-button" href="#work">See work</a>
           <a class="usa-button usa-button--outline" href="#contact">Contact</a>
         </div>
@@ -52,195 +57,248 @@
     </section>
 
     <!-- WORK -->
-    <section id="work" class="nd-section nd-section--light">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Selected work</h2>
-        <p class="reveal" style="max-width: 70ch;">
-          Three placeholder projects. The cards and copy are intentionally simple so you can
-          focus on layout and motion.
+    <section id="work" class="nd-panel nd-theme--light">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Selected work</h2>
+        <p class="measure-6 reveal">
+          Three placeholder projects. The cards and copy are intentionally simple so you can focus on layout and motion.
         </p>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Project Alpha</h3>
-            <p>Landing page redesign with clearer IA and simpler calls-to-action.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Project Beta</h3>
-            <p>Component library alignment with USWDS patterns and accessible interaction.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Project Gamma</h3>
-            <p>Lightweight microsite for a time-boxed campaign with a tight design system.</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Project Alpha</h3>
+              <p class="margin-bottom-0">Landing page redesign with clearer IA and simpler calls-to-action.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Project Beta</h3>
+              <p class="margin-bottom-0">Component library alignment with USWDS patterns and accessible interaction.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Project Gamma</h3>
+              <p class="margin-bottom-0">Lightweight microsite for a time-boxed campaign with a tight design system.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PROCESS -->
-    <section id="process" class="nd-section nd-section--sand">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Process</h2>
+    <section id="process" class="nd-panel nd-theme--sand">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Process</h2>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Step 1</p>
-            <h3 class="nd-h3">Discovery</h3>
-            <p>Clarify user tasks, constraints, and the minimum set of outcomes.</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Step 1</p>
+              <h3 class="font-sans-lg margin-top-0">Discovery</h3>
+              <p class="margin-bottom-0">Clarify user tasks, constraints, and the minimum set of outcomes.</p>
+            </div>
+          </div>
 
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Step 2</p>
-            <h3 class="nd-h3">Design</h3>
-            <p>Prototype the core screens with a clear typography and spacing system.</p>
-          </article>
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Step 2</p>
+              <h3 class="font-sans-lg margin-top-0">Design</h3>
+              <p class="margin-bottom-0">Prototype the core screens with a clear typography and spacing system.</p>
+            </div>
+          </div>
 
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Step 3</p>
-            <h3 class="nd-h3">Build</h3>
-            <p>Implement in small slices, keeping interactions accessible and testable.</p>
-          </article>
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Step 3</p>
+              <h3 class="font-sans-lg margin-top-0">Build</h3>
+              <p class="margin-bottom-0">Implement in small slices, keeping interactions accessible and testable.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CAPABILITIES -->
-    <section id="capabilities" class="nd-section nd-section--slate">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Capabilities</h2>
-        <p class="reveal" style="max-width: 70ch; opacity: .9;">
+    <section id="capabilities" class="nd-panel nd-theme--slate">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Capabilities</h2>
+        <p class="measure-6 reveal" style="opacity: 0.9;">
           Dark section to show contrast handling. Cards keep the same structure but swap styling.
         </p>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Content design</h3>
-            <p>Write for user tasks, reduce duplication, and improve scannability.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Design systems</h3>
-            <p>Tokens, components, and documentation that editors can actually use.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Motion</h3>
-            <p>Subtle reveals, timed transitions, and progressive enhancement.</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Content design</h3>
+              <p class="margin-bottom-0">Write for user tasks, reduce duplication, and improve scannability.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Design systems</h3>
+              <p class="margin-bottom-0">Tokens, components, and documentation that editors can actually use.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Motion</h3>
+              <p class="margin-bottom-0">Subtle reveals, timed transitions, and progressive enhancement.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
-    <section class="nd-section nd-section--mint">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Case studies</h2>
+    <!-- CASE STUDIES (tight section example) -->
+    <section class="nd-panel nd-panel--tight nd-theme--mint">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Case studies</h2>
 
-        <article class="nd-card reveal" style="margin-top: 1.25rem;">
-          <h3 class="nd-h3">From clutter to clarity</h3>
-          <p style="max-width: 80ch;">
-            We simplified navigation labels, reduced page intro copy, and tightened the layout so users
-            could find key actions faster.
-          </p>
-        </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">From clutter to clarity</h3>
+              <p class="measure-6 margin-bottom-0">
+                We simplified navigation labels, reduced page intro copy, and tightened the layout so users could find key actions faster.
+              </p>
+            </div>
+          </div>
 
-        <article class="nd-card reveal" style="margin-top: 1rem;">
-          <h3 class="nd-h3">A microsite that ships quickly</h3>
-          <p style="max-width: 80ch;">
-            A small set of templates, consistent spacing, and reusable section blocks kept the build
-            maintainable while still feeling “designed.”
-          </p>
-        </article>
+          <div class="grid-col-12">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">A microsite that ships quickly</h3>
+              <p class="measure-6 margin-bottom-0">
+                A small set of templates, consistent spacing, and reusable section blocks kept the build maintainable while still feeling designed.
+              </p>
+            </div>
+          </div>
 
-        <article class="nd-card reveal" style="margin-top: 1rem;">
-          <h3 class="nd-h3">Documentation that sticks</h3>
-          <p style="max-width: 80ch;">
-            Short standards, examples, and checklists helped contributors publish without breaking the system.
-          </p>
-        </article>
+          <div class="grid-col-12">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Documentation that sticks</h3>
+              <p class="measure-6 margin-bottom-0">
+                Short standards, examples, and checklists helped contributors publish without breaking the system.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- METRICS -->
-    <section id="metrics" class="nd-section nd-section--lavender">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Metrics</h2>
-        <p class="reveal" style="max-width: 70ch;">
+    <section id="metrics" class="nd-panel nd-theme--lavender">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Metrics</h2>
+        <p class="measure-6 reveal">
           Placeholder stats to create more scroll triggers and show hierarchy.
         </p>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Outcome</p>
-            <h3 class="nd-h3">-25% time to find top tasks</h3>
-            <p>Measured via usability tests on priority user journeys.</p>
-          </article>
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Quality</p>
-            <h3 class="nd-h3">Higher content consistency</h3>
-            <p>Reduced variation by using shared page patterns and token rules.</p>
-          </article>
-          <article class="nd-card reveal">
-            <p class="nd-eyebrow" style="margin:0 0 .5rem;">Delivery</p>
-            <h3 class="nd-h3">Faster iteration cycles</h3>
-            <p>Smaller, testable releases with visible progress every week.</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Outcome</p>
+              <h3 class="font-sans-lg margin-top-0">-25% time to find top tasks</h3>
+              <p class="margin-bottom-0">Measured via usability tests on priority user journeys.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Quality</p>
+              <h3 class="font-sans-lg margin-top-0">Higher content consistency</h3>
+              <p class="margin-bottom-0">Reduced variation by using shared page patterns and token rules.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <p class="text-uppercase font-sans-sm letter-spacing-2 margin-top-0 margin-bottom-1">Delivery</p>
+              <h3 class="font-sans-lg margin-top-0">Faster iteration cycles</h3>
+              <p class="margin-bottom-0">Smaller, testable releases with visible progress every week.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="nd-section nd-section--sky">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">FAQ</h2>
+    <section id="faq" class="nd-panel nd-theme--sky">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">FAQ</h2>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Do I need Next.js?</h3>
-            <p>No. You can get most of the look with good layout + CSS + a small motion script.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Will USWDS get in the way?</h3>
-            <p>Not if you treat it as a foundation and build custom section layouts on top.</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">What’s next?</h3>
-            <p>Add a smooth-scroll layer or scroll-scrubbed sections only if you truly need them.</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Do I need Next.js?</h3>
+              <p class="margin-bottom-0">No. You can get most of the look with good layout and a small motion script.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Will USWDS get in the way?</h3>
+              <p class="margin-bottom-0">Not if you treat it as a foundation and build custom section layouts on top.</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">What’s next?</h3>
+              <p class="margin-bottom-0">Add smooth scrolling only if it supports a real user need.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="nd-section nd-section--dark">
-      <div class="nd-container">
-        <h2 class="nd-h2 reveal">Contact</h2>
-        <p class="reveal">Add your contact details or a form here.</p>
+    <section id="contact" class="nd-panel nd-theme--black">
+      <div class="grid-container">
+        <h2 class="font-sans-xl margin-top-0 reveal">Contact</h2>
+        <p class="measure-6 reveal">Add your contact details or a form here.</p>
 
-        <div class="nd-grid" style="margin-top: 1.25rem;">
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Email</h3>
-            <p>name@example.gov</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Office</h3>
-            <p>Washington, DC</p>
-          </article>
-          <article class="nd-card reveal">
-            <h3 class="nd-h3">Hours</h3>
-            <p>Weekdays, 9–5</p>
-          </article>
+        <div class="grid-row grid-gap margin-top-3">
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Email</h3>
+              <p class="margin-bottom-0">name@example.gov</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Office</h3>
+              <p class="margin-bottom-0">Washington, DC</p>
+            </div>
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-4">
+            <div class="nd-surface padding-3 reveal">
+              <h3 class="font-sans-lg margin-top-0">Hours</h3>
+              <p class="margin-bottom-0">Weekdays, 9–5</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="nd-footer">
-    <div class="nd-container">
-      <p>© <span id="year"></span> NDStudio</p>
+  <footer class="padding-y-4">
+    <div class="grid-container">
+      <p class="margin-y-0">© <span id="year"></span> NDStudio</p>
     </div>
   </footer>
 
-  <!-- USWDS JS from a CDN -->
+  <!-- USWDS JS -->
   <script src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.10.0/dist/js/uswds.min.js" defer></script>
+  <!-- NDStudio script (adds js-on + reveal observer + year) -->
   <script src="site.js" defer></script>
 </body>
 </html>
