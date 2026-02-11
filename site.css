@@ -114,6 +114,65 @@
   color: var(--nd-dark-fg);
 }
 
+/* ==========================================================================
+   04) THEME VARIANTS (SECTION THEMES)
+   Apply these classes on <section> elements in index.html
+   ========================================================================== */
+
+/* Default (light) */
+.nd-section--light {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* Hero / first section (black) */
+.nd-section--black {
+  background: #0b0f1a;
+  color: #ffffff;
+}
+
+/* Additional background options */
+.nd-section--slate {
+  background: #111827;
+  color: #ffffff;
+}
+
+.nd-section--sand {
+  background: #f5f2ea;
+  color: #111111;
+}
+
+.nd-section--mint {
+  background: #e6f7f1;
+  color: #0b1f16;
+}
+
+.nd-section--sky {
+  background: #e9f2ff;
+  color: #0b1526;
+}
+
+.nd-section--lavender {
+  background: #f1efff;
+  color: #140b2e;
+}
+
+/* Make cards work on dark sections automatically */
+.nd-section--black .nd-card,
+.nd-section--slate .nd-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Optional: make outlines/buttons readable on dark sections */
+.nd-section--black .usa-button--outline,
+.nd-section--slate .usa-button--outline {
+  box-shadow: inset 0 0 0 2px #ffffff;
+  color: #ffffff;
+}
+
+
+
 
 /* ==========================================================================
    05) TYPOGRAPHY
