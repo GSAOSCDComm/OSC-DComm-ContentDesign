@@ -74,7 +74,7 @@
 }
 
 .nd-logo-img {
-  height: 40px;
+  height: 40px!important;
   width: auto;
   max-width: 160px;
   object-fit: contain;
