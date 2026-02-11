@@ -81,16 +81,30 @@
 }
 
 /* Reveal-on-scroll */
+/* Motion: reveal on scroll (only after JS is confirmed running) */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js-on .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 500ms ease, transform 650ms ease;
+  transform: translateY(22px);
+  transition: opacity 650ms ease, transform 800ms ease;
   will-change: opacity, transform;
 }
 
-.reveal.is-visible {
+.js-on .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-on .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
