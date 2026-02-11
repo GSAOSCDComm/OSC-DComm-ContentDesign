@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NDStudio Starter</title>
+
+  <!-- USWDS CSS from a CDN (simple to start) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.10.0/dist/css/uswds.min.css">
+  <link rel="stylesheet" href="styles/site.css">
+</head>
+<body>
+
+  <header class="usa-header usa-header--basic border-bottom">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo">
+          <em class="usa-logo__text">
+            <a href="#" title="Home">NDStudio</a>
+          </em>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="nd-hero">
+      <div class="nd-container">
+        <p class="nd-eyebrow reveal">Design and delivery</p>
+        <h1 class="nd-hero-title reveal">A modern USWDS site with motion.</h1>
+        <p class="nd-hero-subtitle reveal">Built on GitHub Pages. Easy to extend.</p>
+
+        <div class="nd-cta-row reveal">
+          <a class="usa-button" href="#work">See work</a>
+          <a class="usa-button usa-button--outline" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="nd-section">
+      <div class="nd-container">
+        <h2 class="nd-h2 reveal">Selected work</h2>
+        <div class="nd-grid">
+          <article class="nd-card reveal">
+            <h3 class="nd-h3">Project Alpha</h3>
+            <p>Short description. Strong type. Whitespace.</p>
+          </article>
+          <article class="nd-card reveal">
+            <h3 class="nd-h3">Project Beta</h3>
+            <p>USWDS gives you accessible primitives.</p>
+          </article>
+          <article class="nd-card reveal">
+            <h3 class="nd-h3">Project Gamma</h3>
+            <p>Motion stays subtle and readable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="nd-section nd-section--dark">
+      <div class="nd-container">
+        <h2 class="nd-h2 reveal">Contact</h2>
+        <p class="reveal">Add your contact info here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="nd-footer">
+    <div class="nd-container">
+      <p>© <span id="year"></span> NDStudio</p>
+    </div>
+  </footer>
+
+  <!-- USWDS JS from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.10.0/dist/js/uswds.min.js" defer></script>
+  <script src="scripts/site.js" defer></script>
+</body>
+</html>
