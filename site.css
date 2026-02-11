@@ -1,45 +1,160 @@
+/* ==========================================================================
+   NDSTUDIO SITE CSS
+   Purpose: clean structure + obvious edit points as the project grows.
+   Replace values in the TOKENS section first before touching individual rules.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01) TOKENS / SITE SETTINGS
+   Replace these first when you want to change the “look”
+   ========================================================================== */
+
+:root {
+  /* Layout */
+  --nd-container-max: 1100px;
+  --nd-container-pad: 1.25rem;
+
+  /* Section sizing */
+  --nd-section-min-height: 100vh;                 /* full viewport sections */
+  --nd-section-pad-y: clamp(3rem, 8vh, 6rem);     /* responsive vertical padding */
+
+  /* Type */
+  --nd-eyebrow-size: 0.95rem;
+  --nd-eyebrow-tracking: 0.06em;
+
+  --nd-hero-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  --nd-hero-line: 1.05;
+
+  --nd-h2-size: 1.75rem;
+  --nd-h3-size: 1.1rem;
+
+  --nd-body-max: 70ch;
+  --nd-hero-body-max: 52ch;
+
+  /* Card */
+  --nd-card-pad: 1.25rem;
+  --nd-card-radius: 16px;
+  --nd-card-border: rgba(0, 0, 0, 0.12);
+
+  /* Dark section */
+  --nd-dark-bg: #0b0f1a;
+  --nd-dark-fg: #ffffff;
+  --nd-dark-card-bg: rgba(255, 255, 255, 0.06);
+  --nd-dark-card-border: rgba(255, 255, 255, 0.14);
+
+  /* Motion (reveal) */
+  --nd-reveal-y: 22px;
+  --nd-reveal-opacity-duration: 650ms;
+  --nd-reveal-transform-duration: 800ms;
+}
+
+
+/* ==========================================================================
+   02) BASE / UTILITIES
+   Add global helpers here (keep minimal)
+   ========================================================================== */
+
 .nd-container {
-  max-width: 1100px;
+  max-width: var(--nd-container-max);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 var(--nd-container-pad);
 }
 
-.nd-hero {
-  padding: 5rem 0 4rem;
+.nd-max-body {
+  max-width: var(--nd-body-max);
 }
 
+
+/* ==========================================================================
+   03) SECTION LAYOUT (FULL VIEWPORT SECTIONS)
+   Replace behavior here if you change the “one section = one screen” approach
+   ========================================================================== */
+
+/* Default: full-viewport sections */
+.nd-hero,
 .nd-section {
+  min-height: var(--nd-section-min-height);
+  padding: var(--nd-section-pad-y) 0;
+}
+
+/* Hero: center vertically */
+.nd-hero {
+  display: flex;
+  align-items: center;
+}
+
+/* Sections: top-align content (better for longer content blocks) */
+.nd-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Optional variants you can apply per section in HTML:
+   - add class "nd-section--center" to center vertically
+   - add class "nd-section--tight" for shorter sections
+*/
+.nd-section--center {
+  align-items: center;
+}
+
+.nd-section--tight {
+  min-height: auto;
   padding: 4rem 0;
 }
 
+
+/* ==========================================================================
+   04) THEME VARIANTS
+   Add more variants here (e.g., light, muted, gradient)
+   ========================================================================== */
+
 .nd-section--dark {
-  background: #0b0f1a;
-  color: #fff;
+  background: var(--nd-dark-bg);
+  color: var(--nd-dark-fg);
 }
 
-.nd-footer {
-  padding: 2rem 0;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
+
+/* ==========================================================================
+   05) TYPOGRAPHY
+   Replace type scale + spacing here
+   ========================================================================== */
 
 .nd-eyebrow {
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
+  font-size: var(--nd-eyebrow-size);
+  letter-spacing: var(--nd-eyebrow-tracking);
   text-transform: uppercase;
   opacity: 0.8;
+  margin: 0 0 0.75rem;
 }
 
 .nd-hero-title {
-  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
-  line-height: 1.05;
+  font-size: var(--nd-hero-size);
+  line-height: var(--nd-hero-line);
   margin: 0.75rem 0 1rem;
 }
 
 .nd-hero-subtitle {
   font-size: 1.15rem;
-  max-width: 52ch;
+  max-width: var(--nd-hero-body-max);
   opacity: 0.9;
+  margin: 0;
 }
+
+.nd-h2 {
+  font-size: var(--nd-h2-size);
+  margin: 0 0 1.25rem;
+}
+
+.nd-h3 {
+  font-size: var(--nd-h3-size);
+  margin: 0 0 0.5rem;
+}
+
+
+/* ==========================================================================
+   06) HERO CTA ROW
+   ========================================================================== */
 
 .nd-cta-row {
   margin-top: 1.25rem;
@@ -48,15 +163,11 @@
   flex-wrap: wrap;
 }
 
-.nd-h2 {
-  font-size: 1.75rem;
-  margin: 0 0 1.25rem;
-}
 
-.nd-h3 {
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem;
-}
+/* ==========================================================================
+   07) GRID / CARDS
+   Replace layout rules here for different content patterns
+   ========================================================================== */
 
 .nd-grid {
   display: grid;
@@ -65,32 +176,55 @@
 }
 
 @media (min-width: 768px) {
-  .nd-grid { grid-template-columns: repeat(3, 1fr); }
+  .nd-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .nd-card {
-  padding: 1.25rem;
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 16px;
+  padding: var(--nd-card-pad);
+  border: 1px solid var(--nd-card-border);
+  border-radius: var(--nd-card-radius);
   background: #fff;
 }
 
 .nd-section--dark .nd-card {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.14);
+  background: var(--nd-dark-card-bg);
+  border-color: var(--nd-dark-card-border);
 }
 
-/* Reveal-on-scroll */
-/* Motion: reveal on scroll (only after JS is confirmed running) */
+
+/* ==========================================================================
+   08) FOOTER
+   ========================================================================== */
+
+.nd-footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================================================
+   09) MOTION: REVEAL ON SCROLL
+   Expected JS behavior:
+   - JS adds "js-on" to <html>
+   - JS adds "is-visible" to each ".reveal" when it enters viewport
+   Replace values in TOKENS section first.
+   ========================================================================== */
+
+/* Default: visible (so content is not hidden if JS fails) */
 .reveal {
   opacity: 1;
   transform: none;
 }
 
+/* When JS is running, start hidden and animate in */
 .js-on .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 650ms ease, transform 800ms ease;
+  transform: translateY(var(--nd-reveal-y));
+  transition:
+    opacity var(--nd-reveal-opacity-duration) ease,
+    transform var(--nd-reveal-transform-duration) ease;
   will-change: opacity, transform;
 }
 
@@ -99,6 +233,7 @@
   transform: translateY(0);
 }
 
+/* Accessibility: honor reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .js-on .reveal {
     opacity: 1;
@@ -107,10 +242,21 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+
+/* ==========================================================================
+   10) OPTIONAL: SCROLL SNAP (OFF BY DEFAULT)
+   If you want “one section per scroll,” uncomment this block.
+   ========================================================================== */
+
+/*
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
+
+.nd-hero,
+.nd-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+*/
