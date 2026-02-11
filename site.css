@@ -81,6 +81,43 @@
   display: block;
 }
 
+/* ==========================================================================
+   HERO IMAGE SECTION (background image + centered quote)
+   ========================================================================== */
+
+.nd-hero-image {
+  position: relative;
+  background-image: url("https://as1.ftcdn.net/v2/jpg/18/72/66/44/1000_F_1872664411_i4w6BsXYk6yacmtBvkFZtKLd8lHEPsXH.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for 508 contrast */
+.nd-hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Keep content above overlay */
+.nd-hero-image > .grid-container {
+  position: relative;
+  z-index: 1;
+}
+
+.nd-hero-quote {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+
 
 /* ==========================================================================
    04) SECTION THEMES (USWDS-STYLE GRAYS + 508 CONTRAST)
