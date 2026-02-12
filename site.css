@@ -49,6 +49,10 @@
   scroll-margin-top: var(--nd-header-offset);
 }
 
+/* ND-only: widen the USWDS header container */
+.nd-nav-container {
+  max-width: 80rem!important;  /* example */
+}
 
 /* ==========================================================================
    03) FULL-VIEWPORT PANELS
