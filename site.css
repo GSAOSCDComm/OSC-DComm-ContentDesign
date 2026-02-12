@@ -55,6 +55,17 @@
 }
 
 /* ==========================================================================
+   UTILITY: TEXT SHADOW (apply to any container)
+   Usage: add class "nd-text-shadow" to any div/section.
+   ========================================================================== */
+
+.nd-text-shadow,
+.nd-text-shadow * {
+  text-shadow: 0 5px 5px rgba(0, 0, 0, .75);
+}
+
+
+/* ==========================================================================
    03) FULL-VIEWPORT PANELS
    Add class "nd-panel" to each <section> you want to fill the viewport.
    Use "nd-panel--center" to vertically center content.
