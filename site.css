@@ -30,6 +30,20 @@
   --nd-reveal-transform-duration: 800ms;
 }
 
+/* ND-only: widen the USWDS header container */
+.nd-nav-container {
+  max-width: 80rem!important;  /* example */
+}
+
+/* ==========================================================================
+   UTILITY: TEXT SHADOW (apply to any container)
+   Usage: add class "nd-text-shadow" to any div/section.
+   ========================================================================== */
+
+.nd-text-shadow,
+.nd-text-shadow * {
+  text-shadow: 0 5px 5px rgba(0, 0, 0, .75);
+}
 
 /* ==========================================================================
    02) STICKY HEADER (WRAPPER)
@@ -47,21 +61,6 @@
 /* Prevent anchor links from hiding under the sticky header */
 :target {
   scroll-margin-top: var(--nd-header-offset);
-}
-
-/* ND-only: widen the USWDS header container */
-.nd-nav-container {
-  max-width: 80rem!important;  /* example */
-}
-
-/* ==========================================================================
-   UTILITY: TEXT SHADOW (apply to any container)
-   Usage: add class "nd-text-shadow" to any div/section.
-   ========================================================================== */
-
-.nd-text-shadow,
-.nd-text-shadow * {
-  text-shadow: 0 5px 5px rgba(0, 0, 0, .75);
 }
 
 
@@ -273,5 +272,12 @@ background: linear-gradient(180deg, #06142d 0%, #0a1f44 25%, #0a1f44 75%, #06142
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .nd-nav-container {
+    margin-left:.5rem;
+   
   }
 }
