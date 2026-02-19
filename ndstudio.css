@@ -426,3 +426,75 @@
 @media (max-width: 640px) {
   :root { --nd-ticker-height: 64px; }
 }
+
+
+/* ==========================================================================
+   IMAGE + TEXT OVERLAY (reusable pattern)
+   ========================================================================== */
+
+.nd-media {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Use when you want a fixed-ish height area (optional) */
+.nd-media--min {
+  min-height: 18rem;
+}
+@media (min-width: 64em) { /* desktop */
+  .nd-media--min {
+    min-height: 22rem;
+  }
+}
+
+/* The image fills the container */
+.nd-media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optional positioning helpers */
+.nd-media__img--right-bottom { object-position: right bottom; }
+.nd-media__img--left-top     { object-position: left top; }
+
+/* Overlay for contrast (tune opacity per section if needed) */
+.nd-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45); /* default */
+  z-index: 1;
+}
+
+/* Optional stronger overlay */
+.nd-media--overlay-strong::before {
+  background: rgba(0,0,0,.60);
+}
+
+/* Optional gradient overlay (ND-ish, better for readability) */
+.nd-media--overlay-gradient::before {
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.65) 0%,
+    rgba(0,0,0,.35) 45%,
+    rgba(0,0,0,.10) 100%
+  );
+}
+
+/* Content sits above overlay */
+.nd-media__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional “glass” surface for text blocks */
+.nd-media__surface {
+  background: rgba(0,0,0,.30);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
