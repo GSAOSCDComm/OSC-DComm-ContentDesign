@@ -4,6 +4,7 @@
    - No section theme backgrounds
    - No hardcoded images
    - Effects you can apply to any element
+   - Date changed 2/19/2026 - 10:02am
    ========================================================================== */
 
 /* =========================
@@ -36,6 +37,12 @@
 
   /* sticky offset helper (if you use sticky headers) */
   --nd-sticky-offset: 88px;
+
+   /* === On-load motion tokens === */
+--nd-fade-distance: 18px;
+--nd-fade-duration: 900ms;
+--nd-fade-ease: cubic-bezier(.2,.8,.2,1);
+--nd-fade-delay: 0ms;
 }
 
 /* =========================
@@ -184,4 +191,89 @@
 /* Add to headings/sections you link to if you have sticky nav */
 .nd-anchor-offset {
   scroll-margin-top: var(--nd-sticky-offset);
+}
+
+/* ==========================================================================
+   10) ON-LOAD EFFECTS (CSS ONLY)
+   Apply these classes directly in HTML.
+   ========================================================================== */
+
+/* Base: fade in */
+.nd-fade-in {
+  opacity: 0;
+  animation: nd-fade-in var(--nd-fade-duration) var(--nd-fade-ease) var(--nd-fade-delay) forwards;
+  will-change: opacity, transform;
+}
+
+/* Fade + move (up is most common for hero text) */
+.nd-fade-up {
+  opacity: 0;
+  transform: translateY(var(--nd-fade-distance));
+  animation: nd-fade-up var(--nd-fade-duration) var(--nd-fade-ease) var(--nd-fade-delay) forwards;
+  will-change: opacity, transform;
+}
+
+.nd-fade-down {
+  opacity: 0;
+  transform: translateY(calc(var(--nd-fade-distance) * -1));
+  animation: nd-fade-down var(--nd-fade-duration) var(--nd-fade-ease) var(--nd-fade-delay) forwards;
+  will-change: opacity, transform;
+}
+
+.nd-fade-left {
+  opacity: 0;
+  transform: translateX(var(--nd-fade-distance));
+  animation: nd-fade-left var(--nd-fade-duration) var(--nd-fade-ease) var(--nd-fade-delay) forwards;
+  will-change: opacity, transform;
+}
+
+.nd-fade-right {
+  opacity: 0;
+  transform: translateX(calc(var(--nd-fade-distance) * -1));
+  animation: nd-fade-right var(--nd-fade-duration) var(--nd-fade-ease) var(--nd-fade-delay) forwards;
+  will-change: opacity, transform;
+}
+
+/* Keyframes */
+@keyframes nd-fade-in {
+  to { opacity: 1; }
+}
+@keyframes nd-fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes nd-fade-down {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes nd-fade-left {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes nd-fade-right {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Delay utilities (stackable with any nd-fade-*) */
+.nd-delay-1 { animation-delay: 120ms; }
+.nd-delay-2 { animation-delay: 240ms; }
+.nd-delay-3 { animation-delay: 360ms; }
+.nd-delay-4 { animation-delay: 480ms; }
+.nd-delay-5 { animation-delay: 600ms; }
+.nd-delay-6 { animation-delay: 720ms; }
+
+/* Duration utilities */
+.nd-dur-1 { animation-duration: 600ms; }
+.nd-dur-2 { animation-duration: 800ms; }
+.nd-dur-3 { animation-duration: 1100ms; }
+.nd-dur-4 { animation-duration: 1400ms; }
+
+/* Accessibility: honor reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nd-fade-in,
+  .nd-fade-up,
+  .nd-fade-down,
+  .nd-fade-left,
+  .nd-fade-right {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
