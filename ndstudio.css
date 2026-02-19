@@ -311,3 +311,89 @@
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   IMAGE TICKER (infinite horizontal scroll)
+   Pattern:
+   .nd-ticker (viewport)
+     .nd-ticker__track (animated)
+       .nd-ticker__group (images...)
+       .nd-ticker__group (same images again...)
+   ========================================================================== */
+
+:root {
+  --nd-ticker-speed: 30s;     /* lower = faster */
+  --nd-ticker-gap: 1.5rem;    /* space between items */
+  --nd-ticker-height: 88px;   /* default logo/image height */
+}
+
+/* viewport */
+.nd-ticker {
+  overflow: hidden;
+  position: relative;
+}
+
+/* optional soft edge fade (nice ND look) */
+.nd-ticker--fade::before,
+.nd-ticker--fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.nd-ticker--fade::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,0));
+}
+.nd-ticker--fade::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,.9), rgba(0,0,0,0));
+}
+
+/* animated track */
+.nd-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: nd-ticker-scroll var(--nd-ticker-speed) linear infinite;
+  will-change: transform;
+}
+
+/* group holds one full set of items */
+.nd-ticker__group {
+  display: flex;
+  align-items: center;
+  gap: var(--nd-ticker-gap);
+  padding-right: var(--nd-ticker-gap);
+}
+
+/* images */
+.nd-ticker__img {
+  height: var(--nd-ticker-height);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Hover pause (optional but useful) */
+.nd-ticker--pause:hover .nd-ticker__track {
+  animation-play-state: paused;
+}
+
+/* keyframes: move left by exactly one group width (50% because we duplicated) */
+@keyframes nd-ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced motion: no animation */
+@media (prefers-reduced-motion: reduce) {
+  .nd-ticker__track { animation: none; transform: none; }
+}
+
+/* Responsive: smaller images on small screens */
+@media (max-width: 640px) {
+  :root { --nd-ticker-height: 64px; }
+}
