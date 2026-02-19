@@ -134,6 +134,8 @@
   background: #0b0f1a;
 }
 
+
+
 /* =========================
    07) DARK READABILITY HELPERS (opt-in)
    Use when placing light text on dark backgrounds.
@@ -498,3 +500,23 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+
+.nd-crop {
+  margin: 0;              /* removes default <p> spacing */
+  overflow: hidden;        /* this crops */
+  position: relative;
+  height: 18rem;           /* pick your crop height */
+  /* OR use aspect-ratio instead of height */
+  /* aspect-ratio: 16 / 9; */
+}
+
+.nd-crop > img {
+  display: block;          /* removes inline image gap */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* crop to fill */
+  object-position: center; /* adjust if needed */
+}
+
+.nd-crop--right-bottom > img { object-position: right bottom; }
+.nd-crop--left-top     > img { object-position: left top; }
