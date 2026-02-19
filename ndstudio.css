@@ -327,6 +327,23 @@
   --nd-ticker-loop-gap: 35vw; /* NEW: empty space between end and restart */
 }
 
+/* Direction modifiers */
+.nd-ticker--left  .nd-ticker__track { animation-name: nd-ticker-left; }
+.nd-ticker--right .nd-ticker__track { animation-name: nd-ticker-right; }
+
+/* Default (if you don't add a direction class) */
+.nd-ticker__track { animation-name: nd-ticker-left; }
+
+@keyframes nd-ticker-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes nd-ticker-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
 .nd-ticker__group {
   display: flex;
   align-items: center;
