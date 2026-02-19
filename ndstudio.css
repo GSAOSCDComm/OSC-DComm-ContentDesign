@@ -322,9 +322,21 @@
    ========================================================================== */
 
 :root {
-  --nd-ticker-speed: 30s;     /* lower = faster */
-  --nd-ticker-gap: 1.5rem;    /* space between items */
-  --nd-ticker-height: 88px;   /* default logo/image height */
+  --nd-ticker-speed: 30s;
+  --nd-ticker-gap: 1.5rem;
+  --nd-ticker-loop-gap: 35vw; /* NEW: empty space between end and restart */
+}
+
+.nd-ticker__group {
+  display: flex;
+  align-items: center;
+  gap: var(--nd-ticker-gap);
+
+  /* NEW: this creates breathing room before the duplicate set starts */
+  padding-right: max(var(--nd-ticker-gap), var(--nd-ticker-loop-gap));
+
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 /* viewport */
