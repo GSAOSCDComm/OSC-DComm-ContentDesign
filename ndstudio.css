@@ -322,7 +322,7 @@
    ========================================================================== */
 
 :root {
-  --nd-ticker-speed: 30s;
+  --nd-ticker-speed: 60s;
   --nd-ticker-gap: 1.5rem;
   --nd-ticker-loop-gap: 35vw; /* NEW: empty space between end and restart */
 }
@@ -358,11 +358,11 @@
 }
 .nd-ticker--fade::before {
   left: 0;
-  background: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,0));
+ /* background: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,0)); */
 }
 .nd-ticker--fade::after {
   right: 0;
-  background: linear-gradient(to left, rgba(0,0,0,.9), rgba(0,0,0,0));
+  /*background: linear-gradient(to left, rgba(0,0,0,.9), rgba(0,0,0,0));*/
 }
 
 /* animated track */
