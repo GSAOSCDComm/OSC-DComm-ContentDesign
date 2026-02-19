@@ -277,3 +277,37 @@
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL (CSS-only, modern browsers)
+   Apply .nd-scroll-fade to any block you want to reveal on entering viewport.
+   ========================================================================== */
+
+.nd-scroll-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: opacity, transform;
+
+  /* Scroll-driven animation */
+  animation-name: nd-scroll-fade-in;
+  animation-duration: 1s;       /* ignored by view() but required */
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+
+  /* Triggers based on element visibility in viewport */
+  animation-timeline: view();
+  animation-range: entry 15% cover 35%;
+}
+
+@keyframes nd-scroll-fade-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nd-scroll-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
